@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Grupo } from './GrupoPi/entities/grupo.entities';
 
 @Module({
   imports: [
@@ -10,7 +11,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'hackathon',
-      entities: [],
+      entities: [Grupo],
       synchronize: true,
     })
   ],
