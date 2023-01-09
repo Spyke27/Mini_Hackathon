@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { Grupo } from "./grupo.entities";
+import { Grupo } from "./entities/grupo.entities";
 
 @Module({
     imports: [TypeOrmModule.forFeature([Grupo])],

@@ -1,12 +1,14 @@
 import { IsNotEmpty } from "class-validator";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Turma } from "../../Turma/entities/turma.entities";
+import { Projeto } from "../../Projeto/entities/projeto.entities";
 
 
-@Entity({name: "GrupoPi"})
+@Entity({name: "grupo"})
 export class Grupo{
     
     @PrimaryGeneratedColumn()
-    id: number
+    id_grupo: number
 
     @IsNotEmpty()
     @Column()
@@ -16,14 +18,14 @@ export class Grupo{
     @Column()
     maisInfos: string
 
-    /* @OneToMany(() => Projeto, (projeto) => projeto.grupo, {
+    @OneToMany(() => Projeto, (projeto) => projeto.grupo, {
         onDelete: "CASCADE"
     })
-    postagem: Projeto[]
+    projeto: Projeto[]
 
     @ManyToOne(() => Turma, (turma) => turma.grupo, {
         onDelete: "CASCADE"
     })
-    turma: Turma */
+    turma: Turma
 
 }
