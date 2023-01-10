@@ -3,6 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Grupo } from './GrupoPi/entities/grupo.entities';
 import { Turma } from './Turma/entities/turma.entities';
 import { Projeto } from './Projeto/entities/projeto.entities';
+import { TurmaModule } from './Turma/turma.module';
+import { GrupoModule } from './GrupoPi/grupo.module';
+import { ProjetoModule } from './Projeto/projeto.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -15,9 +19,12 @@ import { Projeto } from './Projeto/entities/projeto.entities';
       database: 'hackathon',
       entities: [Grupo, Turma, Projeto],
       synchronize: true,
-    })
+    }),
+    TurmaModule, 
+    GrupoModule, 
+    ProjetoModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
