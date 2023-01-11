@@ -15,7 +15,7 @@ export class ProdutoController {
     return this.projetoService.findAll();
   }
 
-  @Get('/:id_projeto')
+  @Get('/:id')
   @HttpCode(HttpStatus.OK)
   findById(@Param('id_projeto', ParseIntPipe) id_projeto: number): Promise<Projeto> {
     return this.projetoService.findById(id_projeto);
@@ -37,9 +37,9 @@ export class ProdutoController {
   update(@Body() projeto: Projeto): Promise<Projeto> {
     return this.projetoService.update(projeto);
   }
-  @Delete('/deletar/:id_projeto')
+  @Delete('/deletar/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  delete(@Param('id_projeto', ParseIntPipe) id_projeto: number) {
-    return this.projetoService.delete(id_projeto);
+  delete(@Param('id', ParseIntPipe) id: number) {
+    return this.projetoService.delete(id);
   }
 }

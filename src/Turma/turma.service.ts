@@ -27,12 +27,10 @@ export class TurmaService {
       }
     });
     if (!turma) {
-      throw new HttpException('Turma não encontrado!', HttpStatus.NOT_FOUND);
+      throw new HttpException('Turma não encontrada!', HttpStatus.NOT_FOUND);
     }
       return turma;
   }
-
-
 
   async create(turma: Turma): Promise<Turma>{
     return await this.turmaRepository.save(turma);
@@ -41,7 +39,7 @@ export class TurmaService {
   async update(turma: Turma): Promise<Turma>{
     let buscaTurma: Turma = await this.findById(turma.id);
     if (!buscaTurma || !turma.id){
-      throw new HttpException('Produto não encontrado!', HttpStatus.NOT_FOUND);
+      throw new HttpException('Turma não encontrada!', HttpStatus.NOT_FOUND);
     }
     return await this.turmaRepository.save(turma);
   }

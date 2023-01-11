@@ -9,7 +9,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 export class GrupoController {
   constructor(private readonly grupoService: GrupoService) {}
 
-  @Get()
+  @Get('/all')
   @HttpCode(HttpStatus.OK)
   findAll(): Promise<Grupo[]> {
     return this.grupoService.findAll();
@@ -30,7 +30,7 @@ create(@Body()Grupo: Grupo): Promise<Grupo>{
 update(@Body()grupo: Grupo): Promise<Grupo>{
   return this.grupoService.update(grupo);
 }
-@Delete('/:id')
+@Delete('/deletar/:id')
 @HttpCode(HttpStatus.NO_CONTENT)
 delete(@Param('id', ParseIntPipe) id: number){
   return this.grupoService.delete(id);
